@@ -2,7 +2,7 @@ import { Grid, Paper, Typography } from '@mui/material'
 import { Container } from '@mui/system'
 
 import React from 'react'
-import ContactList from './Contact'
+import Contact from './Contact'
 
 import Side from './Side'
 
@@ -15,7 +15,7 @@ const Content = (props) => {
                   <Paper sx={{position:"fixed"}}><Side/></Paper></Grid>
                 <Grid item lg={9} sx={{ml:4}}>
                     <Typography>All Contact</Typography>
-                    <ContactList contactData={props.contactData}/>
+                    <Contact contactData={props.contactData}/>
                     </Grid>
             </Grid>
        

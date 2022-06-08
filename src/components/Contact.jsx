@@ -34,7 +34,7 @@ const Contact = (props) => {
                 </TableHead>
                 <TableBody>
                     {
-                        props.ContactData.map((value, key) => (
+                        con.map((value, key) => (
                             <TableData key={key} name={value.name} number={value.number} av={value.av} />
                         ))
                     }
