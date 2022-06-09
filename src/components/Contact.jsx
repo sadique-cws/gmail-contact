@@ -5,9 +5,9 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 
 const TableData = (props) => {
-    const handleId=()=>{
-        props.handleId(props.id)
-        console.log("this is table data")
+    const handleDelete=(id)=>{
+       props.handleDelete(id);
+        
     }
     return (
         <>
@@ -18,17 +18,17 @@ const TableData = (props) => {
                 <TableCell>{props.altcontact}</TableCell>
                 <TableCell>{props.email}</TableCell>
                 <TableCell>{props.add}</TableCell>
-                <TableCell><Button size='small' color='error' variant='contained' onClick={handleId}><DeleteOutlineIcon /></Button></TableCell>
+                <TableCell><Button size='small' color='error' variant='contained' onClick={()=>handleDelete(props.id)}><DeleteOutlineIcon /></Button></TableCell>
             </TableRow>
         </>
     )
 }
 
 const Contact = (props) => {
-  const handleId=(id)=>{
-      props.handleDelete(id);
-      console.log("this is Contact"+id);
-  }
+    const handleDelete=(id)=>{
+        props.handleDelete(id);
+        
+     }
     return (
         <TableContainer  sx={{ maxHeight: 620 }}>
 
@@ -48,7 +48,7 @@ const Contact = (props) => {
                 <TableBody>
                     {
                         props.contactData.map((value, key) => (
-                            <TableData key={key} id={value.id} name={value.name} contact={value.contact} altcontact={value.altcontact} email={value.email} add={value.add} av={value.av} handleId={((id)=>handleId(id))} />
+                            <TableData key={key} id={value.id} name={value.name} contact={value.contact} altcontact={value.altcontact} email={value.email} add={value.add} av={value.av} handleDelete={((id)=>handleDelete(id))} />
                         ))
                     }
                 </TableBody>

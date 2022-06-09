@@ -7,6 +7,9 @@ import Contact from './Contact'
 import Side from './Side'
 
 const Content = (props) => {
+  const handleDelete=(id)=>{
+    props.handleDelete(id);
+  }
   return (
     <Container maxWidth sx={{mt:10,}}>
         
@@ -15,7 +18,7 @@ const Content = (props) => {
                   <Paper sx={{position:"fixed"}}><Side/></Paper></Grid>
                 <Grid item lg={9} sx={{ml:4}}>
                     <Typography>All Contact</Typography>
-                    <Contact contactData={props.contactData}/>
+                    <Contact contactData={props.contactData} handleDelete={(id)=>handleDelete(id)}/>
                     </Grid>
             </Grid>
        

@@ -44,7 +44,7 @@ function App() {
 
   const handleDelete = (id) => {
     console.log("this is handle delete");
-    // setData(data.filter((data) => data.id !== id))
+    setData(data.filter((data) => data.id !== id))
 
 
   }
