@@ -8,7 +8,7 @@ import Side from './Side'
 
 const Content = (props) => {
   return (
-    <Container sx={{mt:10}} maxWidth>
+    <Container maxWidth sx={{mt:10,}}>
         
             <Grid container>
                 <Grid item lg={2}>
