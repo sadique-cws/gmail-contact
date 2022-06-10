@@ -11,11 +11,14 @@ import PrintIcon from '@mui/icons-material/Print';
 import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
-export default function Side() {
+export default function Side(props) {
+    const addContact=()=>{
+        props.addContact();
+    }
     return (
         <List sx={{p:0}}>
             <ListItem>
-                <ListItemButton sx={{ borderRadius: 20, backgroundColor: "lightgray" }} color='secondry' ><AddIcon color='primary' />Create Contact</ListItemButton>
+                <ListItemButton sx={{ borderRadius: 20, backgroundColor: "lightgray" }} color='secondry' onClick={addContact} ><AddIcon color='primary' />Create Contact</ListItemButton>
             </ListItem>
             <ListItem  sx={{p:0}}>
                 <ListItemButton>

@@ -10,12 +10,15 @@ const Content = (props) => {
   const handleDelete=(id)=>{
     props.handleDelete(id);
   }
+  const addContact=()=>{
+    props.addContact();
+  }
   return (
     <Container maxWidth sx={{mt:10,}}>
         
             <Grid container>
                 <Grid item lg={2}>
-                  <Paper sx={{position:"fixed"}}><Side/></Paper></Grid>
+                  <Paper sx={{position:"fixed"}}><Side addContact={()=>addContact()}/></Paper></Grid>
                 <Grid item lg={9} sx={{ml:4}}>
                     <Typography>All Contact</Typography>
                     <Contact contactData={props.contactData} handleDelete={(id)=>handleDelete(id)}/>
