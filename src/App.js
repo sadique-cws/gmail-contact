@@ -10,7 +10,6 @@ import PeopleIcon from '@mui/icons-material/People';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
-
 import contactlist from './data/contactlist';
 
 function App() {
@@ -85,7 +84,7 @@ function App() {
 
               <Grid item xl={12}>
                 <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                  <PhoneIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />   
+                  <PhoneIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
                   <TextField fullWidth variant="standard" label='Alternate Contact' value={altcontact} onChange={(e) => setaltContact(e.target.value)} />
                 </Box>
               </Grid>
@@ -98,9 +97,9 @@ function App() {
               </Grid>
 
               <Grid item xl={12}>
-              <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-                  <ApartmentIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />  
-                <TextField fullWidth variant="standard" label='add' value={add} onChange={(e) => setAdd(e.target.value)} />
+                <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                  <ApartmentIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+                  <TextField fullWidth variant="standard" label='add' value={add} onChange={(e) => setAdd(e.target.value)} />
                 </Box>
               </Grid>
             </Grid>
