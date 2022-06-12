@@ -8,6 +8,7 @@ const ContactLists = [
         altcontact:"+919955015651",
         email:"wasikalam02@gmail.com",
         add:"purnea",
-    }]
+    },
+]
 
 export default  ContactLists;

@@ -6,10 +6,15 @@ import SearchIcon from '@mui/icons-material/Search';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AppsIcon from '@mui/icons-material/Apps';
+import { useEffect } from 'react';
 
-export default function Header() {
+export default function Header(props) {
+
 
  
+  const handleSearch = (searchData) => {
+     props.setSearch(searchData);
+  }
 
   return (
     <AppBar position="fixed" sx={{ backgroundColor: 'white' }}>
@@ -21,7 +26,9 @@ export default function Header() {
           <Typography variant='h5' color="black" >Contact</Typography>
         </Stack>
 
-        <TextField size='small' sx={{ width: "50%", ml: 6, mr: 35 }} placeholder="Search" InputProps={{ endAdornment: (<InputAdornment position="end">   <SearchIcon /> </InputAdornment>) }} />
+        <TextField
+        onChange = {(e) => handleSearch(e.target.value)} 
+        size='small' sx={{ width: "50%", ml: 6, mr: 35 }} placeholder="Search" InputProps={{ endAdornment: (<InputAdornment position="end">   <SearchIcon /> </InputAdornment>) }} />
         <Stack direction="row" spacing={3} >
           <IconButton  ><HelpOutlineIcon sx={{ color: "black", fontWeight: "bold", background: "transparent" }} /></IconButton>
           <IconButton  ><SettingsIcon sx={{ color: "black", fontWeight: "bold", background: "transparent" }} /></IconButton>

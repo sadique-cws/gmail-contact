@@ -5,7 +5,7 @@ import Content from './components/Content';
 import Header from './components/Header';
 import AddIcon from '@mui/icons-material/Add';
 import { Box, Container } from '@mui/system';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PeopleIcon from '@mui/icons-material/People';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import EmailIcon from '@mui/icons-material/Email';
@@ -23,37 +23,46 @@ function App() {
   const [add, setAdd] = useState("")
 
   const [data, setData] = useState(contactlist);
-
-
+  const [filteredResults, setFilteredResults] = useState([]);
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
-
   const handleInsert = () => {
     let newArray = { id: data.length + 1, name: name, contact: contact, altcontact: altcontact, email: email, add: add };
     setData([...data, newArray]);
-
-
     handleClose();
-
   }
-
   const handleDelete = (id) => {
-    console.log("this is handle delete");
-    // setData(data.filter((data) => data.id !== id))
-
-
+    let newArray = data.filter((item) => item.id !== id);
+    setData(newArray)
   }
+  
+  const [search, setSearch] = useState(null)
+  
+   const searchItem = (search) => {
+      setSearch(search);
+      if (search !== '') {
+        const filteredData = data.filter((item) => {
+            return Object.values(item).join('').toLowerCase().includes(search.toLowerCase())
+        })
+        setFilteredResults(filteredData)
+    }
+    else{
+        setFilteredResults(data)
+    }
+   }
+
 
 
   return (
     <>
-      <Header />
-      <Content contactData={data} handleDelete={((id) => handleDelete(id))} />
+      <Header setSearch={(d) => searchItem(d)}/>
+      <Content 
+      searchData={filteredResults}
+      contactData={(data)} handleDelete={(id) => handleDelete(id)}/>
       <Container>
 
         <Dialog open={open} onClose={handleClose}>
